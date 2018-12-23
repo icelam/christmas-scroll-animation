@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-TW" lang="zh-TW">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+    <meta name="description" content="Christmas Animation using ScrollMagic, GSAP" />
+    <meta name="keywords" content="Christmas, Xmas, Parallax, Scroll Animation, Scroll Magic, GSAP" />
+    <meta name="robots" content="index" />
+    <meta name="title" content="Christmas Animation using ScrollMagic, GSAP" />
+    <meta property="og:description" content="Christmas Animation using ScrollMagic, GSAP" />
+    <meta property="og:title" content="Christmas Animation using ScrollMagic, GSAP" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pinkylam.me/playground/christmas2018/" />
+    <meta property="og:image" content="http://pinkylam.me/playground/christmas2018/assets/images/og/og-image.png" />
+    <meta property="og:image:secure_url" content="https://pinkylam.me/playground/christmas2018/assets/og/images/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    <meta property="og:image:alt" content="Christmas Animation using ScrollMagic, GSAP" />
+    <meta property="og:site_name" content="pinkylam.me" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    <!-- Web App Tags: For add to home screen -->
+    <!--<link rel="manifest" href="manifest.json">
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+      
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/touch-icons/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/touch-icons/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/touch-icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/touch-icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/touch-icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/touch-icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/touch-icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/touch-icons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" href="assets/images/touch-icons/apple-touch-icon-57x57.png" />-->
+    <!-- Web App Tags -->
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/images/og/favicon.ico" type="image/x-icon" />
+    <!-- Favicons -->
+
+    <title>Christmas Animation using ScrollMagic, GSAP</title>
+    <link rel="canonical" href="https://pinkylam.me/playground/christmas2018/" />
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WPVPCR9');</script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPVPCR9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Scene 0 -->
+    <div id="scene0" class="scene">
+      <div class="content">
+        <div class="row">
+          <div class="counter">Christmas Animation using<br/>ScrollMagic, GSAP</div>
+        </div>
+        <div class="row">
+          <div class="text">
+            <span id="start_msg">Scroll</span>
+            <img src="~@images/svg/scroll.svg" id="scroll">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Scene 0 -->
+
+    <!-- Scene 1 -->
+    <div id="scene1" class="scene">
+      <!-- House -->
+      <div id="house">
+        <div id="floor"></div>
+        <!-- Container -->
+        <div class="container">
+          <!-- Window -->
+          <div id="night">
+            <div id="snows">
+              <div class="snow snow--near"></div>
+              <div class="snow snow--near snow--alt"></div>
+              <div class="snow snow--far"></div>
+              <div class="snow snow--far snow--alt"></div>
+            </div>
+            <img src="~@images/svg/window.svg" id="window">
+          </div>
+          <!-- /Window -->
+
+          <!-- Calendar -->
+          <img src="~@images/svg/calendar.svg" id="calendar">
+          <!-- /Calendar -->
+
+          <!-- Tree -->
+          <img src="~@images/svg/pot.svg" id="pot">
+          <img src="~@images/svg/tree.svg" id="tree">
+          <img src="~@images/svg/deco.svg" id="deco">
+          
+          <div id="balls">
+            <div class="position--relative">
+              <img src="~@images/svg/yellow_ball.svg" id="ball_y" class="ball ball--yellow">
+              <img src="~@images/svg/purple_ball.svg" id="ball_p" class="ball ball--purple">
+              <img src="~@images/svg/red_ball.svg" id="ball_r" class="ball ball--red">
+            </div>
+          </div>
+
+          <img src="~@images/svg/star.svg" id="star">
+          <!-- /Tree -->
+
+          <div id="wish">Merry Christmas</div>
+        </div>
+        <!-- /Container -->
+      </div>
+      <!-- /House -->
+    </div>
+    <!-- /Scene 1 -->
+  </body>
+</html>

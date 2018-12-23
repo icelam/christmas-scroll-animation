@@ -1,0 +1,18 @@
+$z-index: (
+  'snows': -1,
+  'calendar': 6,
+  'window': 7,
+  'night': 9,
+  'tree': 10,
+  'pot':  11,
+  'deco': 12,
+  'ball': 13,
+  'star': 14
+);
+
+$shadow-size: calculateHeight(5);
+
+//snow
+$snow-near: 10s;
+$snow-mid: ($snow-near * 2);
+$snow-far: ($snow-near * 3);

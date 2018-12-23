@@ -1,0 +1,41 @@
+@import './function';
+@import './mixin';
+
+#house {
+  bottom: 100vh;
+
+  #pot {
+    opacity: 0;
+    bottom: calculateHeight(160);
+  }
+
+  #tree {
+    @include transform(scale(0));
+    @include transform-origin(50%, 100%);
+  }
+
+  #deco {
+    opacity: 0;
+    bottom: calculateHeight(253);
+  }
+
+  #balls {
+    .ball {
+      opacity: 0;
+      top: 2%;
+      @include transform(rotate(0deg));
+      @include transform-origin(50%, 0%);
+    }
+  }
+
+  #star {
+    opacity: 0;
+    bottom: calculateHeight(800);
+  }
+
+  #wish {
+    opacity: 0;
+  }
+}
+
+

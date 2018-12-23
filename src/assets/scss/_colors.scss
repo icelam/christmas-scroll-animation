@@ -1,0 +1,22 @@
+$color-white: #ffffff;
+$color-black: #000000;
+
+$color-nero: #231f20;
+$color-ironside-grey: #6c6966;
+$color-merino: #e3e0d5;
+
+$color-yellow: #fcb75f;
+$color-blue: #1c2f48;
+
+//body
+$color-body-background:  $color-merino;
+$color-font: $color-black;
+
+//scene0
+$color-scene-0-background: $color-merino;
+$color-scene-0-font: $color-ironside-grey;
+$color-scene-0-font-dark: $color-nero;
+
+//scene1
+$color-scene-1-background: $color-yellow;
+$color-scene-1-night: $color-blue;

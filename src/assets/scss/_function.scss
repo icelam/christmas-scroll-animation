@@ -1,0 +1,11 @@
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
+
+@function calculateWidth($w) {
+  @return ($w / 1920 * 100) + vw;
+}
+
+@function calculateHeight($h) {
+  @return ($h / 1080 * 100) + vh;
+}
