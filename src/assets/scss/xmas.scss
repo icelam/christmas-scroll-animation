@@ -89,7 +89,7 @@ html, body {
   background: $color-scene-1-background url('~@images/svg/wall.svg') 50% 50% / auto 100% repeat-x;
 
   #floor {
-    width: 100vw;
+    width: 100%;
     height: 18vh;
     min-width: 320px;
     position: absolute;

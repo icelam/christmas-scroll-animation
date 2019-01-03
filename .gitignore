@@ -6,3 +6,5 @@ yarn-debug.log*
 yarn-error.log*
 
 /dist
+
+bundle-analyzer-plugin-report.html

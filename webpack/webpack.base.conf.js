@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: Path.resolve(__dirname, '../src/assets/js/xmas.js')
+    app: Path.resolve(__dirname, '../src/index.js')
   },
   output: {
     path: Path.join(__dirname, '../dist'),
@@ -13,8 +13,14 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
-      chunks: 'all',
-      name: false
+      cacheGroups: {
+        vendor: {
+          test: /node_modules/,
+          chunks: 'initial',
+          name: 'vendor',
+          enforce: true
+        },
+      }
     }
   },
   plugins: [
@@ -37,6 +43,7 @@ module.exports = {
       '@style': Path.resolve(__dirname, '../src/assets/scss'),
       '@images': Path.resolve(__dirname, '../src/assets/images'),
       '@fonts': Path.resolve(__dirname, '../src/assets/fonts'),
+      '@js': Path.resolve(__dirname, '../src/assets/js'),
       'TweenLite': Path.resolve('node_modules', 'gsap/src/uncompressed/TweenLite.js'),
       'TweenMax': Path.resolve('node_modules', 'gsap/src/uncompressed/TweenMax.js'),
       'TimelineLite': Path.resolve('node_modules', 'gsap/src/uncompressed/TimelineLite.js'),

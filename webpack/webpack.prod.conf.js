@@ -3,7 +3,8 @@ const Webpack = require('webpack');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const baseWebpackConfig = require('./webpack.base.conf')
+const baseWebpackConfig = require('./webpack.base.conf');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(baseWebpackConfig, {
   mode: 'production',
@@ -21,6 +22,10 @@ module.exports = merge(baseWebpackConfig, {
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
       filename: 'assets/css/bundle.css'
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: "static",
+      reportFilename: '../bundle-analyzer-plugin-report.html',
     })
   ],
   module: {

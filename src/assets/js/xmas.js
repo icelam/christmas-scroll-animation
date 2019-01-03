@@ -6,9 +6,6 @@ import 'animation.gsap';
 import 'debug.addIndicators';
 import ScrollMagic from 'ScrollMagic';
 
-import '@style/xmas.scss';
-import '@style/animation.scss';
-
 /* 
  * Variables
  */
