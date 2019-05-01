@@ -2,7 +2,8 @@ const Webpack = require('webpack');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const baseWebpackConfig = require('./webpack.base.conf');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const OptimizeCssnanoPlugin = require('@intervolga/optimize-cssnano-plugin');
 
 module.exports = merge(baseWebpackConfig, {
   mode: 'production',
@@ -20,6 +21,16 @@ module.exports = merge(baseWebpackConfig, {
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
       filename: 'assets/css/bundle.css'
+    }),
+    new OptimizeCssnanoPlugin({
+      sourceMap: false,
+      cssnanoOptions: {
+        preset: ['default', {
+          discardComments: {
+            removeAll: true,
+          },
+        }],
+      },
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
