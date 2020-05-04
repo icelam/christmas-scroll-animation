@@ -20,7 +20,7 @@ module.exports = merge(baseWebpackConfig, {
     }),
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'assets/css/bundle.css'
+      filename: 'assets/css/bundle.[chunkhash:8].css'
     }),
     new OptimizeCssnanoPlugin({
       sourceMap: false,
