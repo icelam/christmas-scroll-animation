@@ -12,8 +12,8 @@
 }
 
 @mixin svg-shadow($n) {
-  -webkit-filter: drop-shadow($n $n $n rgba(0,0,0,0.2));
-  filter: drop-shadow($n $n $n rgba(0,0,0,0.2));
+  -webkit-filter: drop-shadow($n $n $n rgba(0, 0, 0, 0.2));
+  filter: drop-shadow($n $n $n rgba(0, 0, 0, 0.2));
 }
 
 @mixin transform($n) {
@@ -25,9 +25,9 @@
 }
 
 @mixin transform-origin($x, $y) {
-  -webkit-transform-origin : $x $y;
-  -moz-transform-origin : $x $y;
-  -o-transform-origin : $x $y;
-  -ms-transform-origin : $x $y;
-  transform-origin : $x $y;
+  -webkit-transform-origin: $x $y;
+  -moz-transform-origin: $x $y;
+  -o-transform-origin: $x $y;
+  -ms-transform-origin: $x $y;
+  transform-origin: $x $y;
 }

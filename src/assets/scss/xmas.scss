@@ -6,12 +6,16 @@
 
 @font-face {
   font-family: 'ArialRoundedMTBold';
-  src: url('~@fonts/ArialRoundedMTBold.eot?#iefix') format('embedded-opentype'),  url('~@fonts/ArialRoundedMTBold.woff') format('woff'), url('~@fonts/ArialRoundedMTBold.ttf')  format('truetype'), url('~@fonts/ArialRoundedMTBold.svg#ArialRoundedMTBold') format('svg');
+  src: url('~@fonts/ArialRoundedMTBold.eot?#iefix') format('embedded-opentype'),
+    url('~@fonts/ArialRoundedMTBold.woff') format('woff'),
+    url('~@fonts/ArialRoundedMTBold.ttf') format('truetype'),
+    url('~@fonts/ArialRoundedMTBold.svg#ArialRoundedMTBold') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
   color: $color-font;
@@ -21,13 +25,11 @@ html, body {
   min-width: 320px;
   font-size: 16px;
   line-height: 1.5;
-  font-family: 'ArialRoundedMTBold', Arial,sans-serif;
+  font-family: 'ArialRoundedMTBold', Arial, sans-serif;
 }
 
 .container {
   @include full-screen;
-  //max-width: 1920px;
-  //margin: auto;
   position: relative;
 }
 
@@ -50,17 +52,17 @@ html, body {
 
     & > .row {
       display: table-row;
-      
+
       &:nth-child(1) {
         height: 70%;
       }
 
-      .counter {
+      .title {
         color: $color-scene-0-font-dark;
         display: table-cell;
         vertical-align: middle;
         text-align: center;
-        font-size: calculateHeight(60);
+        font-size: calculateHeight(58);
         line-height: 1.3;
         padding: 0 calculateHeight(60);
       }
@@ -86,7 +88,8 @@ html, body {
 #house {
   @include full-screen;
   position: fixed;
-  background: $color-scene-1-background url('~@images/svg/wall.svg') 50% 50% / auto 100% repeat-x;
+  background: $color-scene-1-background url('~@images/svg/wall.svg') 50% 50% /
+    auto 100% repeat-x;
 
   #floor {
     width: 100%;
@@ -106,7 +109,7 @@ html, body {
     height: calculateHeight(574);
     z-index: z-index('night');
     background-color: $color-scene-1-night;
-      
+
     #window {
       width: 100%;
       height: 100%;
@@ -131,32 +134,32 @@ html, body {
         left: 0;
         animation: falling linear infinite both;
         transform: translate3D(0, -100%, 0);
-                  
+
         &--near {
           animation-duration: $snow-near;
           background-image: url('~@images/png/snow-large.png');
           background-size: contain;
-          
+
           & + .snow--alt {
             animation-delay: ($snow-near / 2);
           }
         }
-          
+
         &--mid {
           animation-duration: $snow-mid;
           background-image: url('~@images/png/snow-medium.png');
           background-size: contain;
-          
+
           & + .snow--alt {
             animation-delay: ($snow-mid / 2);
           }
         }
-          
+
         &--far {
           animation-duration: $snow-far;
           background-image: url('~@images/png/snow-small.png');
           background-size: contain;
-          
+
           & + .snow--alt {
             animation-delay: ($snow-far / 2);
           }
