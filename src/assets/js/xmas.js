@@ -1,3 +1,5 @@
+/* global TimelineMax */
+
 /* 
  * Import
  */
@@ -5,13 +7,11 @@ import TweenMax from 'TweenMax';
 import 'animation.gsap';
 import 'debug.addIndicators';
 import ScrollMagic from 'ScrollMagic';
+import debounce from './utils/debounce';
 
 /* 
  * Variables
  */
-//let resizeTimer;
-//const resizeInterval = 300;
-
 const elem_scene_1 = '#scene1';
 const elem_house = '#house';
 const elem_night = '#night';
@@ -50,7 +50,6 @@ const isLandscape = () => {
 
 const orientationcChangeHandler = () => {
   if(!isLandscape()) {
-    //alert('For best experience, please use this site in landscape mode.');
     window.scrollTo(0, 0);
     document.getElementById('start_msg').innerHTML = 'Rotate your phone to start';
     document.getElementsByTagName('body')[0].style.overflow='hidden';
@@ -64,12 +63,9 @@ const orientationcChangeHandler = () => {
 /* 
  * Listeners
  */
-window.addEventListener('orientationchange', orientationcChangeHandler);
+window.addEventListener('orientationchange', debounce(orientationcChangeHandler, 250));
 
-/*window.addEventListener('resize', function() {
-  clearTimeout(resizeTimer); 
-  resizeTimer = setTimeout(orientationcChangeHandler, resizeInterval);
-});*/
+window.addEventListener('resize', debounce(orientationcChangeHandler, 250));
 
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
@@ -142,19 +138,15 @@ scene1_animation_tween.add([
   TweenMax.to(elem_wish, 1, {opacity: 1, delay: 8})
 ]);
 
-new ScrollMagic.Scene({
-  duration: '100%'
-})
-.triggerElement('body')
-.setTween(scene1_in_tween)
-//.addIndicators()
-.addTo(controller);
+new ScrollMagic.Scene({ duration: '100%' })
+  .triggerElement('body')
+  .setTween(scene1_in_tween)
+  //.addIndicators()
+  .addTo(controller);
 
-new ScrollMagic.Scene({
-  duration: '2000%'
-})
-.setPin(elem_scene_1)
-.triggerElement(elem_scene_1)
-.setTween(scene1_animation_tween)
-//.addIndicators()
-.addTo(controller);
+new ScrollMagic.Scene({ duration: '2000%' })
+  .setPin(elem_scene_1)
+  .triggerElement(elem_scene_1)
+  .setTween(scene1_animation_tween)
+  //.addIndicators()
+  .addTo(controller);
