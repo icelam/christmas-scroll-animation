@@ -1,13 +1,13 @@
 const Webpack = require('webpack');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
+const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const baseWebpackConfig = require('./webpack.base.conf');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const OptimizeCssnanoPlugin = require('@intervolga/optimize-cssnano-plugin');
 
 module.exports = merge(baseWebpackConfig, {
   mode: 'production',
-  // devtool: 'source-map',
+  target: 'browserslist',
   stats: 'errors-only',
   bail: true,
   output: {
@@ -20,17 +20,7 @@ module.exports = merge(baseWebpackConfig, {
     }),
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'assets/css/bundle.[chunkhash:8].css'
-    }),
-    new OptimizeCssnanoPlugin({
-      sourceMap: false,
-      cssnanoOptions: {
-        preset: ['default', {
-          discardComments: {
-            removeAll: true,
-          },
-        }],
-      },
+      filename: 'assets/css/[name].[chunkhash:8].css'
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
@@ -42,7 +32,12 @@ module.exports = merge(baseWebpackConfig, {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            envName: 'production'
+          }
+        }]
       },
       {
         test: /\.s?css/i,
@@ -55,6 +50,17 @@ module.exports = merge(baseWebpackConfig, {
           },
           {
             loader: 'css-loader'
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                ident: 'postcss',
+                plugins: [
+                  autoprefixer()
+                ]
+              }
+            }
           },
           {
             loader: 'sass-loader'
