@@ -9,7 +9,7 @@ module.exports = merge(baseWebpackConfig, {
   target: 'web', // to have hot reload to work, production should use 'browserslist'
   devtool: 'inline-source-map',
   output: {
-    chunkFilename: 'assets/js/[name].chunk.js'
+    chunkFilename: 'assets/js/[name].chunk.js',
   },
   devServer: {
     // inline: true,
@@ -18,21 +18,21 @@ module.exports = merge(baseWebpackConfig, {
     client: {
       overlay: {
         warnings: false,
-        errors: true
-      }
-    }
+        errors: true,
+      },
+    },
   },
   plugins: [
     new Webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development')
-    })
+      'process.env.NODE_ENV': JSON.stringify('development'),
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.(js)$/,
         include: path.resolve(__dirname, '../src'),
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.s?css$/i,
@@ -41,8 +41,8 @@ module.exports = merge(baseWebpackConfig, {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true
-            }
+              sourceMap: true,
+            },
           },
           {
             loader: 'postcss-loader',
@@ -50,19 +50,19 @@ module.exports = merge(baseWebpackConfig, {
               postcssOptions: {
                 ident: 'postcss',
                 plugins: [
-                  autoprefixer()
-                ]
-              }
-            }
+                  autoprefixer(),
+                ],
+              },
+            },
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true
-            }
-          }
-        ]
-      }
-    ]
-  }
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+    ],
+  },
 });

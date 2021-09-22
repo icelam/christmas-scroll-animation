@@ -2,8 +2,8 @@ const Webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const baseWebpackConfig = require('./webpack.base.conf');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const baseWebpackConfig = require('./webpack.base.conf');
 
 module.exports = merge(baseWebpackConfig, {
   mode: 'production',
@@ -12,20 +12,20 @@ module.exports = merge(baseWebpackConfig, {
   bail: true,
   output: {
     filename: 'assets/js/[name].[chunkhash:8].js',
-    chunkFilename: 'assets/js/[name].[chunkhash:8].chunk.js'
+    chunkFilename: 'assets/js/[name].[chunkhash:8].chunk.js',
   },
   plugins: [
     new Webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'assets/css/[name].[chunkhash:8].css'
+      filename: 'assets/css/[name].[chunkhash:8].css',
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
-      reportFilename: '../bundle-analyzer-plugin-report.html'
-    })
+      reportFilename: '../bundle-analyzer-plugin-report.html',
+    }),
   ],
   module: {
     rules: [
@@ -35,9 +35,9 @@ module.exports = merge(baseWebpackConfig, {
         use: [{
           loader: 'babel-loader',
           options: {
-            envName: 'production'
-          }
-        }]
+            envName: 'production',
+          },
+        }],
       },
       {
         test: /\.s?css/i,
@@ -45,11 +45,11 @@ module.exports = merge(baseWebpackConfig, {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '../../'
-            }
+              publicPath: '../../',
+            },
           },
           {
-            loader: 'css-loader'
+            loader: 'css-loader',
           },
           {
             loader: 'postcss-loader',
@@ -57,16 +57,16 @@ module.exports = merge(baseWebpackConfig, {
               postcssOptions: {
                 ident: 'postcss',
                 plugins: [
-                  autoprefixer()
-                ]
-              }
-            }
+                  autoprefixer(),
+                ],
+              },
+            },
           },
           {
-            loader: 'sass-loader'
-          }
-        ]
-      }
-    ]
-  }
+            loader: 'sass-loader',
+          },
+        ],
+      },
+    ],
+  },
 });

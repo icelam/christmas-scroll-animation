@@ -1,39 +1,39 @@
 {
-  "env":
-  {
+  "env": {
     "browser": true,
     "commonjs": true,
     "es6": true,
     "node": true
   },
-  "extends": "eslint:recommended",
-  "parserOptions":
-  {
+  "extends": ["eslint:recommended", "airbnb-base"],
+  "settings": {
+    "import/resolver": [
+      "node",
+      {
+        "webpack": {
+          "config": "./webpack/webpack.base.conf.js"
+        },
+        "extensions": [".js"]
+      }
+    ]
+  },
+  "parserOptions": {
     "sourceType": "module"
   },
-  "rules":
-  {
-    "indent": [
-      "error",
-      2,
-      {
-        "SwitchCase": 1
+  "overrides": [
+    {
+      "files": ["webpack/**/*.js"],
+      "rules": {
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": true,
+            "peerDependencies": false,
+            "bundledDependencies": false,
+            "optionalDependencies": false
+          }
+        ]
       }
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "no-console": [
-      "off"
-    ]
-  }
+    }
+  ]
 }
