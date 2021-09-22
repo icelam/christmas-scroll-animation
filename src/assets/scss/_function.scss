@@ -2,10 +2,10 @@
   @return map-get($z-index, $key);
 }
 
-@function calculateWidth($w) {
-  @return ($w / 1920 * 100) + vw;
+@function calculateWidth($width) {
+  @return ($width / 1920 * 100) + vw;
 }
 
-@function calculateHeight($h) {
-  @return ($h / 1080 * 100) + vh;
+@function calculateHeight($height) {
+  @return ($height / 1080 * 100) + vh;
 }

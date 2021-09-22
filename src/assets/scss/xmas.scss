@@ -180,7 +180,9 @@ body {
   #pot {
     bottom: calculateHeight(60);
     height: calculateHeight(125);
-    @include svg-shadow($shadow-size);
+    filter: drop-shadow(
+      $shadow-size $shadow-size $shadow-size rgba(0, 0, 0, 0.2)
+    );
     @include absolute-center;
     z-index: z-index('pot');
   }
@@ -188,7 +190,9 @@ body {
   #tree {
     bottom: calculateHeight(111);
     height: calculateHeight(696);
-    @include svg-shadow($shadow-size);
+    filter: drop-shadow(
+      $shadow-size $shadow-size $shadow-size rgba(0, 0, 0, 0.2)
+    );
     @include absolute-center;
     z-index: z-index('tree');
   }
@@ -196,7 +200,9 @@ body {
   #deco {
     bottom: calculateHeight(233);
     height: calculateHeight(506);
-    @include svg-shadow($shadow-size);
+    filter: drop-shadow(
+      $shadow-size $shadow-size $shadow-size rgba(0, 0, 0, 0.2)
+    );
     @include absolute-center;
     z-index: z-index('deco');
   }
@@ -218,7 +224,9 @@ body {
       position: absolute;
       height: calculateHeight(42);
       z-index: z-index('ball');
-      @include svg-shadow($shadow-size);
+      filter: drop-shadow(
+        $shadow-size $shadow-size $shadow-size rgba(0, 0, 0, 0.2)
+      );
 
       &--yellow {
         top: 22%;
@@ -238,7 +246,9 @@ body {
   #star {
     bottom: calculateHeight(788);
     height: calculateHeight(90);
-    @include svg-shadow($shadow-size);
+    filter: drop-shadow(
+      $shadow-size $shadow-size $shadow-size rgba(0, 0, 0, 0.2)
+    );
     @include absolute-center;
     z-index: z-index('star');
   }
