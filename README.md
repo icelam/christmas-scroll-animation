@@ -5,7 +5,7 @@ Christmas scroll animation demo
 ### Run Project ###
 
 * `npm install`
-* `npm run dev`
+* `npm run start`
 
 ### Build Production ###
 
