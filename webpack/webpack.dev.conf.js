@@ -6,15 +6,14 @@ const baseWebpackConfig = require('./webpack.base.conf');
 
 module.exports = merge(baseWebpackConfig, {
   mode: 'development',
-  target: 'web', // to have hot reload to work, production should use 'browserslist'
   devtool: 'inline-source-map',
   output: {
     chunkFilename: 'assets/js/[name].chunk.js',
   },
   devServer: {
-    // inline: true,
     host: '0.0.0.0',
     port: 8888,
+    watchFiles: ['src/**/*'],
     client: {
       overlay: {
         warnings: false,
